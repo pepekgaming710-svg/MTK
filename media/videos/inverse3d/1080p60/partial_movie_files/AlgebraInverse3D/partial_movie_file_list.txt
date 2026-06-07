@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/3139889093_82607347_223132457.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_1579273437_4169451604.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_62730232_1294969970.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_4073845205_4171452635.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_4259829705_675130005.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_4073845205_96399231.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_3504789457_4283773579.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/92263608_4073845205_3801528492.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/3249588150_945030808_3694994330.mp4'
+file 'file:C:/Users/XXXXXX/Downloads/manim_project/manim_project/media/videos/inverse3d/1080p60/partial_movie_files/AlgebraInverse3D/3542317088_2230675760_2028525792.mp4'
