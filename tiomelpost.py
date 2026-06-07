@@ -1,113 +1,73 @@
 from manim import *
 
-class AlgebraInverse3D(ThreeDScene):
+class Tugaspertemuan15(ThreeDScene):
     def construct(self):
 
-        # ==========================
-        # Kamera
-        # ==========================
         self.set_camera_orientation(
             phi=70 * DEGREES,
             theta=-45 * DEGREES,
             zoom=0.9
         )
 
-        # ==========================
-        # Sumbu 3D
-        # ==========================
         axes = ThreeDAxes(
-            x_range=[-3, 3, 1],
-            y_range=[-3, 3, 1],
-            z_range=[-3, 3, 1],
-            x_length=8,
-            y_length=8,
-            z_length=6,
+            x_range=[-10, 10, 2],
+            y_range=[-10, 10, 2],
+            z_range=[-5, 5, 1],
+            x_length=10,
+            y_length=10,
+            z_length=5
         )
 
         self.play(Create(axes))
 
-        # ==========================
-        # Label sumbu (stabil)
-        # ==========================
-        x_label = Tex("x").scale(0.8)
-        y_label = Tex("y").scale(0.8)
-        z_label = Tex("z").scale(0.8)
-
-        x_label.move_to(axes.x_axis.get_end() + RIGHT * 0.4)
-        y_label.move_to(axes.y_axis.get_end() + UP * 0.4)
-        z_label.move_to(axes.z_axis.get_end() + OUT * 0.4)
-
-        self.add_fixed_orientation_mobjects(
-            x_label,
-            y_label,
-            z_label
-        )
-
-        self.add(
-            x_label,
-            y_label,
-            z_label
-        )
-
         title = Text(
-            "Muhammad Zidni Alkausar - 25109004",
+            "Muhammad Zidni Alkausar_25109004",
             font_size=32
         )
 
+        self.add_fixed_in_frame_mobjects(title)
         title.to_edge(UP)
 
-        self.add_fixed_in_frame_mobjects(title)
+        self.play(Write(title))
 
-        self.play(
-            Write(title)
-        )
-
-
-        func_formula = MathTex(
+        formula1 = MathTex(
             r"f(x)=x^3"
         ).set_color(BLUE)
 
-        inverse_formula = MathTex(
+        formula2 = MathTex(
             r"f^{-1}(x)=\sqrt[3]{x}"
         ).set_color(RED)
 
-        func_formula.to_corner(UL)
-
-        inverse_formula.next_to(
-            func_formula,
+        formula1.to_corner(UL)
+        formula2.next_to(
+            formula1,
             DOWN,
             aligned_edge=LEFT
         )
 
         self.add_fixed_in_frame_mobjects(
-            func_formula,
-            inverse_formula
+            formula1,
+            formula2
         )
 
-        self.play(
-            Write(func_formula)
-        )
+        self.play(Write(formula1))
 
-        self.play(
-            Write(inverse_formula)
-        )
+        # fungsi utama
 
-
-        func = ParametricFunction(
+        graph1 = ParametricFunction(
             lambda t: axes.c2p(
                 t,
-                t**3 / 3,
-                1
+                t**3,
+                0
             ),
-            t_range=[-1.6, 1.6],
+            t_range=[-2, 2],
             color=BLUE,
             stroke_width=6
         )
 
-        self.play(
-            Create(func)
-        )
+        self.play(Create(graph1))
 
+        # bidang refleksi
 
         plane = Surface(
             lambda u, v: axes.c2p(
@@ -115,9 +75,9 @@ class AlgebraInverse3D(ThreeDScene):
                 u,
                 v
             ),
-            u_range=[-2.5, 2.5],
-            v_range=[-2.5, 2.5],
-            resolution=(20, 20),
+            u_range=[-10, 10],
+            v_range=[-2, 2],
+            resolution=(20, 10),
             fill_opacity=0.25,
             checkerboard_colors=[
                 TEAL_D,
@@ -125,46 +85,93 @@ class AlgebraInverse3D(ThreeDScene):
             ]
         )
 
-        self.play(
-            Create(plane)
-        )
+        self.play(Create(plane))
 
-        reflection_line = Line3D(
-            start=axes.c2p(
-                -2.5,
-                -2.5,
-                0
-            ),
-            end=axes.c2p(
-                2.5,
-                2.5,
-                0
-            ),
+        # garis y=x
+
+        diagonal = Line3D(
+            start=axes.c2p(-10, -10, 0),
+            end=axes.c2p(10, 10, 0),
             color=YELLOW,
             thickness=0.05
         )
 
-        self.play(
-            Create(reflection_line)
+        self.play(Create(diagonal))
+
+        # titik contoh
+
+        point_a = Dot3D(
+            axes.c2p(2, 8, 0),
+            color=GREEN
         )
 
-        inverse = ParametricFunction(
+        label_a = MathTex(
+            "(2,8)"
+        ).scale(0.7)
+
+        label_a.move_to(
+            axes.c2p(2, 8, 0) + UP
+        )
+
+        self.add_fixed_orientation_mobjects(
+            label_a
+        )
+
+        self.play(
+            FadeIn(point_a),
+            Write(label_a)
+        )
+
+        self.wait(1)
+
+        # titik hasil refleksi
+
+        point_b = Dot3D(
+            axes.c2p(8, 2, 0),
+            color=ORANGE
+        )
+
+        label_b = MathTex(
+            "(8,2)"
+        ).scale(0.7)
+
+        label_b.move_to(
+            axes.c2p(8, 2, 0) + UP
+        )
+
+        self.add_fixed_orientation_mobjects(
+            label_b
+        )
+
+        self.play(
+            Transform(
+                point_a.copy(),
+                point_b
+            )
+        )
+
+        self.play(
+            Write(label_b)
+        )
+
+        # fungsi invers
+
+        graph2 = ParametricFunction(
             lambda t: axes.c2p(
-                t**3 / 3,
+                t**3,
                 t,
-                -1
+                0
             ),
-            t_range=[-1.6, 1.6],
+            t_range=[-2, 2],
             color=RED,
             stroke_width=6
         )
 
-        self.play(
-            Create(inverse)
-        )
+        self.play(Create(graph2))
+        self.play(Write(formula2))
 
         self.begin_ambient_camera_rotation(
-            rate=0.15
+            rate=0.12
         )
 
         self.wait(10)
