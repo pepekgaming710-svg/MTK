@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🎬 Manim - Render HD",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "manim",
+      "args": ["-pqh", "inverse_algebra_3d.py", "InverseAlgebra3D"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "⚡ Manim - Preview Cepat",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "manim",
+      "args": ["-pql", "inverse_algebra_3d.py", "InverseAlgebra3D"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
